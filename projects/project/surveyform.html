@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Survey Form</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=poppins:ital" ,rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    /*general reset*/
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /*body styling*/
+    body {
+        font-family: 'poppins', sans-serif;
+        background-color: #29363a;
+        color: #333;
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    /* container*/
+    .container {
+        background: #b1b0b0;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .header h1 {
+
+        font-size: 28px;
+        color: #2c3e50;
+    }
+
+    .header p {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .from group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #2c3e50;
+
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='number'],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3 ease;
+    }
+
+    input :focus,
+    select :focus,
+    textarea :focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    .radio-lable,
+    .check-lable,
+    .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #555;
+        cursor: pointer;
+    }
+
+    .input-radio,
+    .input-checkbox {
+        width: 16px;
+        height: 16px;
+        margin: 0;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .input-textarea {
+        min-height: 80px;
+        resize: vertical;
+    }
+
+    .submit-button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3 ease;
+    }
+
+    .submit-button :hover {
+        background: #2980b9;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="tittle">Free Survey Form</h1>
+            <p id="description">
+            </p>
+        </header>
+        <form id="Survey Form">
+            <div class="form-group">
+                <label id="name-lable" for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label id="email-lable" for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email"
+                    required>
+            </div>
+            <div class="form-group">
+                <label id="age-lable" for="age">Age</label>
+                <input type="number" name="age" id="number" min="12" max="99" class="form-control"
+                    placeholder="Enter your age" required>
+            </div>
+            <div class="form-group">
+                <label for="dropdown">which option is best describe your current role</label>
+                <select name="role" id="dropdown" class="form-control" required>
+                    <option value="student">student</option>
+                    <option value="job">Full Time job</option>
+                    <option value="learner">Full Time learner</option>
+                    <option value="preferNO">Prefer Not to Say</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p class="group-lable">Would you recommend Free Survery to a friend?</p>
+                <label class="radio-lable">
+                    <input type="radio" name="user-recommend" value="definitely" class="input-radio" checked><span>Definitely</span>
+                </label>
+
+                <label class="radio-lable">
+                    <input type="radio" name="user-recommend" value="not-sure" class="input-radio"><span>Not Sure</span> 
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="most-like">What is your favorite future of free survey?</label>
+                <select name="mostlike" id="most-like" class="form-control" required>
+                    <option disabled="selected valuie">Select an option</option>
+                    <option value="challenge">Challenges</option>
+                    <option value="projects">Projects</option>
+                    <option value="community">Community</option>
+                    <option value="opensource">Open source</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p class="group-lable">What would you like to improve? <samp class="clue">Check all that apply</samp>
+                </p>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="backend-projects" class="input-checkbox">Frontend
+                    projects
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="prefer" value="backend-projects" class="input-checkbox">Backend
+                    Projects
+                </label>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="prefer" value="data-visualization" class="input-checkbox">Data
+                    data-visualization
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="challenges" class="input-checkbox">Challenges
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="open-source-community" class="input-checkbox">Open
+                    Source Community
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="gitter-help-rooms" class="input-checkbox">
+                    Gitter Help Rooms
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="videos" class="input-checkbox">
+                    Videos
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="city-meetups" class="input-checkbox">City Meetups
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="wiki" class="input-checkbox">
+                    Wiki
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="forum" class="input-checkbox">
+                    Fourm
+                </label>
+                <label class="checkbox-lable">
+                    <input type="checkbox" name="prefer" value="additional-courses" class="input-checkbox">
+                    Additional Courses
+                </label>
+            </div>
+            <div class="from-group">
+                <label for="comments">Any Comments or Suggestions?</label>
+                <textarea name="Comment" id="comment" class="input-textarea"
+                    placeholder="Enter your comment here..."></textarea>
+            </div>
+            <div class="from-group">
+                <button type="submit" id="submit" class="submit-button">submit
+                </button>
+            </div>
+            </from>
+    </div>
+</body>
+
+</html>
+

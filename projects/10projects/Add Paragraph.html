@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+	background-color: rgb(175, 240, 240);
+}
+
+#container{
+    width: 350px;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+	background-color: rgb(64, 230, 105);
+}
+
+button{
+    margin: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+	color: rgb(12, 12, 15);
+	text-decoration-color: cadetblue;
+}
+</style>
+</head>
+<body>
+
+<div id="container">
+    <button onclick="addParagraph()">Add Paragraph</button>
+    <div id="content"></div>
+</div>
+
+<script>
+function addParagraph() {
+    const p = document.createElement("p");
+    p.textContent = "This paragraph was added by developer";
+
+    // Edit button
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.onclick = function () {
+        const newText = prompt("Edit paragraph:", p.firstChild.textContent);
+        if (newText) {
+            p.firstChild.textContent = newText;
+        }
+    };
+
+    // Delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.onclick = function () {
+        p.remove();
+    };
+
+    p.appendChild(editBtn);
+    p.appendChild(deleteBtn);
+
+    document.getElementById("content").appendChild(p);
+}
+</script>
+
+</body>
+</html>

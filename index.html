@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101513">
+    <meta name="description" content="Mohammed Mudassir Ali — fresher full stack developer portfolio">
+    <title>Mohammed Mudassir Ali — Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #101513;
+            --panel: #171e1a;
+            --text: #f2f4ef;
+            --muted: #a0aaa2;
+            --line: #2b352f;
+            --green: #b8f36b;
+            --max: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ::selection {
+            background: var(--green);
+            color: #101513;
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 48px));
+            margin: auto;
+        }
+
+        .mono {
+            color: var(--green);
+            font-family: "DM Mono", monospace;
+            font-size: .72rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #101513e8;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid #ffffff0c;
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font: 800 1.15rem "Manrope", sans-serif;
+            letter-spacing: -.05em;
+        }
+
+        .brand b {
+            color: var(--green);
+        }
+
+        .links {
+            display: flex;
+            gap: 34px;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .links a:hover,
+        .socials a:hover {
+            color: var(--green);
+        }
+
+        .nav-cta {
+            padding: 10px 16px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            font-size: .82rem;
+        }
+
+        .nav-cta:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .hero {
+            min-height: 650px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 70px;
+            padding: 75px 0 85px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 14px #b8f36b77;
+        }
+
+        .hero h1 {
+            margin: 25px 0 23px;
+            font: 700 clamp(3.1rem, 6.7vw, 5.55rem)/1.04 "Manrope", sans-serif;
+            letter-spacing: -.075em;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .lead {
+            max-width: 520px;
+            color: #b2bcb4;
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        .actions {
+            display: flex;
+            gap: 13px;
+            margin-top: 33px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 19px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 6px;
+            font-size: .87rem;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: #11170e;
+        }
+
+        .btn-primary:hover {
+            background: #cffb94;
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--line);
+        }
+
+        .hero-note {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 45px;
+            color: var(--muted);
+            font-size: .8rem;
+        }
+
+        .hero-note::before {
+            content: "";
+            width: 35px;
+            height: 1px;
+            background: #647068;
+        }
+
+        .visual {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 420px;
+        }
+
+        .orb {
+            position: relative;
+            width: min(350px, 80vw);
+            aspect-ratio: 1;
+            border: 1px solid #52634b44;
+            border-radius: 50%;
+            background: radial-gradient(circle at 36% 31%, #344b32, #243623 34%, #19241b 64%, #141a16 70%);
+            box-shadow: inset -20px -18px 55px #0b100d, 0 0 85px #a3df5330;
+        }
+
+        .orb::before,
+        .orb::after {
+            position: absolute;
+            inset: -29px;
+            content: "";
+            border: 1px solid #b8f36b38;
+            border-radius: 50%;
+            transform: rotate(-24deg) scaleY(.38);
+        }
+
+        .orb::after {
+            inset: -55px;
+            border-color: #b8f36b25;
+            transform: rotate(43deg) scaleY(.34);
+        }
+
+        .orb-center {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: #c6f78f;
+            font: 800 8rem "Manrope", sans-serif;
+            letter-spacing: -.12em;
+            text-shadow: 0 0 42px #b8f36b55;
+        }
+
+        .float-card {
+            position: absolute;
+            padding: 13px 16px;
+            border: 1px solid #ffffff17;
+            border-radius: 8px;
+            background: #18201bd9;
+            box-shadow: 0 16px 45px #0005;
+            backdrop-filter: blur(12px);
+        }
+
+        .float-card .mono {
+            font-size: .6rem;
+        }
+
+        .float-card strong {
+            display: block;
+            margin-top: 4px;
+            font-size: .87rem;
+        }
+
+        .fc-one {
+            top: 35px;
+            right: 0;
+        }
+
+        .fc-two {
+            bottom: 72px;
+            left: 0;
+        }
+
+        .fc-three {
+            right: 12px;
+            bottom: 25px;
+        }
+
+        .strip {
+            padding: 23px 0;
+            border-block: 1px solid var(--line);
+        }
+
+        .strip-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .strip-label,
+        .section-copy {
+            color: var(--muted);
+            font-size: .84rem;
+        }
+
+        .tech {
+            display: flex;
+            align-items: center;
+            gap: 29px;
+            color: #d1d8d0;
+            font: 500 .82rem "DM Mono", monospace;
+            flex-wrap: wrap;
+        }
+
+        .tech i {
+            color: var(--green);
+            font-style: normal;
+        }
+
+        section {
+            padding: 108px 0;
+        }
+
+        .section-top {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 42px;
+        }
+
+        .section-top h2,
+        .about-copy h2 {
+            margin: 12px 0 0;
+            font: 700 clamp(2rem, 4vw, 3.1rem)/1.1 "Manrope", sans-serif;
+            letter-spacing: -.06em;
+        }
+
+        .section-copy {
+            max-width: 360px;
+            line-height: 1.7;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            overflow: hidden;
+            border: 1px solid #ffffff0d;
+            border-radius: 10px;
+            background: var(--panel);
+            transition: .25s;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            border-color: #b8f36b55;
+        }
+
+        .project-art {
+            height: 180px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: #18211b;
+        }
+
+        .art-one {
+            background: radial-gradient(ellipse at 50% 80%, #567f44, transparent 45%),
+                linear-gradient(140deg, #273d2b, #111915);
+        }
+
+        .art-two {
+            background: radial-gradient(ellipse at 75% 25%, #605b3c, transparent 40%),
+                linear-gradient(145deg, #2c342b, #151a17);
+        }
+
+        .browser {
+            width: 70%;
+            height: 68%;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: 1px solid #ffffff30;
+            border-radius: 8px;
+            background: #111815e8;
+            box-shadow: 0 20px 45px #0008;
+        }
+
+        .browser-head {
+            height: 25px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 0 9px;
+            border-bottom: 1px solid #ffffff18;
+        }
+
+        .browser-head i {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #607161;
+        }
+
+        .browser-body {
+            padding: 19px;
+        }
+
+        .mock-line {
+            width: 42%;
+            height: 6px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            background: #ffffff20;
+        }
+
+        .mock-title {
+            width: 65%;
+            height: 11px;
+            margin: 16px 0;
+            border-radius: 3px;
+            background: var(--green);
+        }
+
+        .mock-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+        }
+
+        .mock-grid i {
+            height: 30px;
+            border-radius: 4px;
+            background: linear-gradient(145deg, #354c36, #202c24);
+        }
+
+        .art-two .mock-title {
+            width: 50%;
+            background: #e8c77c;
+        }
+
+        .art-two .mock-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .art-two .mock-grid i {
+            height: 34px;
+            background: linear-gradient(145deg, #493f2b, #29261d);
+        }
+
+        .project-content {
+            padding: 16px;
+        }
+
+        .project-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .project h3 {
+            margin: 0;
+            font: 1rem "Manrope", sans-serif;
+        }
+
+        .project-link {
+            color: var(--green);
+            font-size: 1.2rem;
+        }
+
+        .project p {
+            margin: 11px 0 19px;
+            color: var(--muted);
+            font-size: .87rem;
+        }
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 1000px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 5px 9px;
+            border-radius: 4px;
+            background: #ffffff08;
+            color: #c3cdc4;
+            font: .65rem "DM Mono", monospace;
+        }
+
+        .about {
+            border-block: 1px solid #ffffff08;
+            background: #141a16;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .75fr 1.25fr;
+            align-items: start;
+            gap: 90px;
+        }
+
+       .about-mark{
+    height:380px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+
+    background:linear-gradient(
+        135deg,
+        #18221b,
+        #243623
+    );
+}
+        /* .about-mark::before,
+        .about-mark::after {
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border: 1px solid #b8f36b26;
+            border-radius: 50%;
+            content: "";
+            transform: scaleY(.45) rotate(35deg);
+        }
+
+        .about-mark::after {
+            transform: scaleY(.45) rotate(-35deg);
+        } */
+
+       .profile-img{
+    width:260px;
+    height:320px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:3px solid var(--green);
+
+    box-shadow:
+    0 0 25px rgba(184,243,107,.35);
+
+    transition:.3s ease;
+}
+
+.profile-img:hover{
+    transform:scale(1.05);
+}
+
+
+        .about-copy h2 {
+            margin: 12px 0 21px;
+        }
+
+        .about-copy p {
+            color: #aeb8b0;
+            font-size: .94rem;
+            line-height: 1.85;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 31px;
+            padding-top: 26px;
+            border-top: 1px solid var(--line);
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--green);
+            font: 700 1.45rem "Manrope", sans-serif;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: .74rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill-card {
+            padding: 21px;
+            border: 1px solid #f0eeee0d;
+            border-radius: 8px;
+            background: var(--panel);
+        }
+
+        .icon {
+            color: var(--green);
+            font-size: 1.25rem;
+        }
+
+        .skill-card h3 {
+            margin: 14px 0 8px;
+            font: 600 .93rem "Manrope", sans-serif;
+        }
+
+        .skill-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .77rem;
+            line-height: 1.65;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            padding: 54px;
+            border: 1px solid #b8f36b35;
+            border-radius: 12px;
+            background: radial-gradient(ellipse at 100% 0, #33452a55, transparent 48%), var(--panel);
+        }
+
+        .contact-box h2 {
+            margin: 12px 0;
+            font: 700 clamp(2rem, 4vw, 3.2rem)/1.08 "Manrope", sans-serif;
+            letter-spacing: -.065em;
+        }
+
+        .contact-box p {
+            max-width: 470px;
+            color: var(--muted);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 185px;
+        }
+
+        .contact-actions .btn {
+            justify-content: center;
+        }
+
+        .email {
+            color: var(--green);
+            text-align: center;
+            font: .78rem "DM Mono", monospace;
+        }
+
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .75rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                min-height: auto;
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 65px 0;
+            }
+
+            .visual {
+                min-height: 330px;
+            }
+
+            .orb {
+                width: 255px;
+            }
+
+            .orb-center {
+                font-size: 6rem;
+            }
+
+            .fc-one {
+                right: 8%;
+            }
+
+            .fc-two {
+                bottom: 48px;
+                left: 6%;
+            }
+
+            .fc-three {
+                right: 9%;
+                bottom: 5px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-mark {
+                height: 240px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-box {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 38px;
+            }
+
+            .contact-actions {
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .wrap {
+                width: calc(100% - 36px);
+            }
+
+            .nav {
+                height: 66px;
+            }
+
+            .links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 58px;
+            }
+
+            .hero h1 {
+                font-size: 3.15rem;
+            }
+
+            .lead {
+                font-size: .98rem;
+            }
+
+            .visual {
+                min-height: 285px;
+            }
+
+            .orb {
+                width: 215px;
+            }
+
+            .orb::before {
+                inset: -20px;
+            }
+
+            .orb::after {
+                inset: -38px;
+            }
+
+            .float-card {
+                padding: 10px 12px;
+            }
+
+            .fc-one {
+                top: 22px;
+            }
+
+            .fc-two {
+                bottom: 37px;
+            }
+
+            .fc-three {
+                bottom: 0;
+            }
+
+            .strip-inner,
+            .section-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .tech {
+                gap: 15px;
+            }
+
+            .tech span {
+                font-size: .72rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .section-top {
+                margin-bottom: 28px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .project-art {
+                height: 210px;
+            }
+
+            .skills-grid {
+                gap: 10px;
+            }
+
+            .skill-card {
+                padding: 16px;
+            }
+
+            .stats {
+                gap: 10px;
+            }
+
+            .stat strong {
+                font-size: 1.2rem;
+            }
+
+            .contact-box {
+                padding: 27px;
+            }
+
+            .contact-actions {
+                width: 100%;
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .contact-actions .btn {
+                width: 100%;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap nav">
+            <a class="brand" href="#home">Mudassir Ali<b>&lt;/&gt;</b></a>
+            <nav class="links" aria-label="Main navigation">
+                <a href="#work">Work</a><a href="#about">About</a><a href="#skills">Skills</a><a
+                    href="#contact">Contact</a>
+            </nav>
+            <a class="nav-cta" href="#contact">Let’s talk ↗</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="wrap hero" id="home">
+            <div>
+                <div class="eyebrow mono"><span class="dot"></span> Available for opportunities</div>
+                <h1>Building for the <span>web.</span><br>Learning every day.</h1>
+                <p class="lead">Hey, I’m Mudassir — a full stack developer at the start of my journey. I turn ideas into
+                    useful, thoughtful digital experiences, one line of code at a time.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="#work">Explore my work <span>↘</span></a>
+                    <a class="btn btn-ghost" href="#contact">Get in touch</a>
+                </div>
+                <div class="hero-note">Currently seeking my first developer role</div>
+            </div>
+            <div class="visual" aria-label="Decorative developer illustration">
+                <div class="orb">
+                    <div class="orb-center">&lt;/&gt;</div>
+                </div>
+                <div class="float-card fc-one"><span class="mono">Current focus</span><strong>Full stack
+                        development</strong></div>
+                <div class="float-card fc-two"><span class="mono">Status</span><strong>✳ Open to work</strong></div>
+                <div class="float-card fc-three"><span class="mono">Based in</span><strong>Your City, Country</strong>
+                </div>
+            </div>
+        </section>
+
+        <div class="strip">
+            <div class="wrap strip-inner">
+                <span class="strip-label">Tools I’ve been learning</span>
+                <div class="tech">
+                    <span><i>◈</i> React</span><span><i>⬡</i> Node.js</span><span><i>◉</i> JavaScript</span>
+                    <span><i>▤</i> PostgreSQL</span><span><i>⌘</i> Git</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="wrap" id="work">
+            <div class="section-top">
+                <div>
+                    <div class="mono">Selected projects · 01—02</div>
+                    <h2>Things I’ve built.</h2>
+                </div>
+                <p class="section-copy">A few projects where I’ve practiced taking an idea from the first sketch to a
+                    working product.</p>
+            </div>
+            <div class="projects">
+                <article class="project">
+                    <div class="project-art art-one">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:75%"></div>
+                                <div class="mock-grid"><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Survey-form</h3>
+                            <a class="project-link" href="/projects/project/surveyform.html" target="_blank"
+                                aria-label="Ask me about Survey-form">↗</a>
+                        </div>
+                        <p>A simple task management app to help small teams plan work, track progress, and stay in sync.
+                        </p>
+                        <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span
+                                class="tag">Express</span><span class="tag"></span></div>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project-art art-two">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line" style="width:28%"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:85%"></div>
+                                <div class="mock-grid"><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>The Cafe House</h3><a class="project-link" href="/projects/project/cofee.html"
+                                target="_blank" aria-label="Ask me about Goodground">↗</a>
+                        </div>
+                        <p>A warm, responsive storefront concept with a product menu and an easy-to-use ordering
+                            experience.</p>
+                        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS</span><span
+                                class="tag">JavaScript</span></div>
+                    </div>
+
+
+                </article>
+
+                <article class="project">
+                    <div class="project-art art-one">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:50%"></div>
+                                <div class="mock-grid"><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>E-Commerce</h3>
+                            <a class="project-link" href="/projects/shoes.html" target="_blank"
+                                aria-label="Ask me about E-Commerce">↗</a>
+                        </div>
+                        <p>A simple e-Commerce platform to help small businesses sell their products online, track
+                            progress, and stay in sync.
+                        </p>
+                        <div class="tags"><span class="tag">HTML5</span><span class="tag">Tailwind CSS</span><span
+                                class="tag">JavaScript</span></div>
+                    </div>
+                </article>
+                <article class="project">
+                    <div class="project-art art-two">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line" style="width:28%"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:50%"></div>
+                                <div class="mock-grid"><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Add Paragraph</h3><a class="project-link"
+                                href="/projects/10projects/Add Paragraph.html"
+                                aria-label="Ask me about Goodground">↗</a>
+                        </div>
+                        <p>A warm, responsive basic projects which I have done to learn the basic of web development and
+                            to gain
+                            experience.</p>
+                        <div class="tags"><span class="tag">JavaScript</span><span class="tag">CSS</span><span
+                                class="tag">html</span><span class="tag">Tailwind</span></div>
+                    </div>
+
+
+                </article>
+                 <article class="project">
+                    <div class="project-art art-one">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:75%"></div>
+                                <div class="mock-grid"><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>calculator</h3>
+                            <a class="project-link" href="/projects/10projects/calculator.html" target="_blank"
+                                aria-label="Ask me about Survey-form">↗</a>
+                        </div>
+                        <p>A simple calculator app to help small teams plan work, track progress, and stay in sync.
+                        </p>
+                        <div class="tags"><span class="tag">HTML</span><span class="tag">JavaScript</span><span
+                                class="tag">CSS</span><span class="tag">TailwindCSS</span></div>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-art art-two">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line" style="width:28%"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:85%"></div>
+                                <div class="mock-grid"><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>The Colour-Changer</h3><a class="project-link" href="/projects/10projects/Colour Changer.html"
+                                target="_blank" aria-label="Ask me about Goodground">↗</a>
+                        </div>
+                        <p>A tool that lets you swap or modify the color of text and background, and gives you option to reset it.</p>
+                        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS</span><span
+                                class="tag">JavaScript</span></div>
+                    </div>
+
+
+                </article>
+                
+                </article>
+                 <article class="project">
+                    <div class="project-art art-one">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:75%"></div>
+                                <div class="mock-grid"><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Digital-clock</h3>
+                            <a class="project-link" href="/projects/10projects/Digitalclock.html" target="_blank"
+                                aria-label="Ask me about Survey-form">↗</a>
+                        </div>
+                        <p>A timekeeping device that displays the time in 12hrs & 24hrs formate rather than moving hands on a traditional analog dial.</p>
+                        <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span
+                                class="tag">Express</span><span class="tag"></span></div>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-art art-two">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line" style="width:28%"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:85%"></div>
+                                <div class="mock-grid"><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Fetch Data</h3><a class="project-link" href="/projects/10projects/fetchdata.html"
+                                target="_blank" aria-label="Ask me about Goodground">↗</a>
+                        </div>
+                        <p>The Fetch API is a build-in javascript interfaceused to make asynchronous network requests and retrive resources from a web server.</p>
+                        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS</span><span
+                                class="tag">JavaScript</span></div>
+                    </div>
+
+
+                </article>
+                </article>
+                 <article class="project">
+                    <div class="project-art art-one">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:75%"></div>
+                                <div class="mock-grid"><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Image-slidebar</h3>
+                            <a class="project-link" href="/projects/10projects/imageslidebar.html" target="_blank"
+                                aria-label="Ask me about Survey-form">↗</a>
+                        </div>
+                        <p>A web design component that displays multiple images in a rotating or sliding formate.
+                        </p>
+                        <div class="tags"><span class="tag">JAVA</span><span class="tag">CSS</span><span
+                                class="tag">HTML</span><span class="tag"></span></div>
+                    </div>
+                </article>
+                <article class="project">
+                    <div class="project-art art-two">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line" style="width:28%"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:85%"></div>
+                                <div class="mock-grid"><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Timer</h3><a class="project-link" href="/projects/10projects/Timer.html"
+                                target="_blank" aria-label="Ask me about Goodground">↗</a>
+                        </div>
+                        <p>A wearable timepiece that measures a set duration counting down to zero .</p>
+                        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS</span><span
+                                class="tag">JavaScript</span></div>
+                    </div>
+
+
+                </article>
+                
+                </article>
+                 <article class="project">
+                    <div class="project-art art-one">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:75%"></div>
+                                <div class="mock-grid"><i></i><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Traffic-Signals</h3>
+                            <a class="project-link" href="/projects/10projects/signal.html" target="_blank"
+                                aria-label="Ask me about Survey-form">↗</a>
+                        </div>
+                        <p>An automated signalling device placed at road intersections to control the flow of vehicles using standard three-colour light sequence.
+                        </p>
+                        <div class="tags"><span class="tag">javascript</span><span class="tag">html</span><span
+                                class="tag">CSS</span><span class="tag">Tailwind</span></div>
+                    </div>
+                </article>
+                <article class="project">
+                    <div class="project-art art-two">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line" style="width:28%"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:85%"></div>
+                                <div class="mock-grid"><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>The Password Register</h3><a class="project-link" href="/projects/10projects/password.html"
+                                target="_blank" aria-label="Ask me about Goodground">↗</a>
+                        </div>
+                        <p>A basic registerForm which is used to generate password by using email-ID and Mobile .</p>
+                        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS</span><span
+                                class="tag">JavaScript</span></div><span class="tag">Tailwind</span>
+                    </div>
+
+
+                </article>
+                <article class="project">
+                    <div class="project-art art-two">
+                        <div class="browser">
+                            <div class="browser-head"><i></i><i></i><i></i></div>
+                            <div class="browser-body">
+                                <div class="mock-line" style="width:28%"></div>
+                                <div class="mock-title"></div>
+                                <div class="mock-line" style="width:85%"></div>
+                                <div class="mock-grid"><i></i><i></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-head">
+                            <h3>Todo-List</h3><a class="project-link" href="/projects/10projects/todo.html"
+                                target="_blank" aria-label="Ask me about Goodground">↗</a>
+                        </div>
+                        <p>A simple record of tasks,chores that you need or want to accomplish within a specific timeframe .</p>
+                        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS</span><span
+                                class="tag">JavaScript</span></div><span class="tag">Tailwind</span>
+                    </div>
+
+
+                </article>
+
+            </div>
+            
+        </section>
+
+
+       
+
+        <section class="about" id="about">
+            <div class="wrap about-grid">
+                <div class="about-mark">
+                    
+    <img src="/mudassir.jpeg" alt="Mudassir Ali" class="profile-img">
+                    
+                </div>
+                <div class="about-copy">
+                    <div class="mono">A little about me</div>
+                    <h2>Curious by nature.<br>Developer by choice.</h2>
+                    <p>I’m a fresher full stack developer who enjoys understanding how the whole picture fits together —
+                        from a clean interface to the data and logic behind it. I’m building my skills through hands-on
+                        projects, steady practice, and a lot of curiosity.</p>
+                    <p>I value thoughtful details, clear communication, and writing code that another person can
+                        comfortably pick up. Right now, I’m excited to join a team, learn from experienced developers,
+                        and contribute wherever I can.</p>
+                    <div class="stats">
+                        <div class="stat"><strong>12+</strong><span>Personal projects</span></div>
+                        <div class="stat"><strong>∞</strong><span>Things to learn</span></div>
+                        <div class="stat"><strong>100%</strong><span>Curiosity</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap" id="skills">
+            <div class="section-top">
+                <div>
+                    <div class="mono">What I work with</div>
+                    <h2>My growing toolkit.</h2>
+                </div>
+                <p class="section-copy">I’m always learning. These are the tools I’ve used to build projects and keep
+                    growing as a developer.</p>
+            </div>
+            <div class="skills-grid">
+                <article class="skill-card"><span class="icon">⌘</span>
+                    <h3>Frontend</h3>
+                    <p>React, HTML, CSS, JavaScript, responsive design</p>
+                </article>
+                <article class="skill-card"><span class="icon">⟨⟩</span>
+                    <h3>Backend</h3>
+                    <p>Node.js, Express, REST APIs, authentication basics</p>
+                </article>
+                <article class="skill-card"><span class="icon">▤</span>
+                    <h3>Databases</h3>
+                    <p>MongoDB, PostgreSQL, data modeling fundamentals</p>
+                </article>
+                <article class="skill-card"><span class="icon">⌥</span>
+                    <h3>Workflow</h3>
+                    <p>Git, GitHub, VS Code, testing and debugging</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="wrap" id="contact">
+            <div class="contact-box">
+                <div>
+                    <div class="mono">Have a role or project in mind?</div>
+                    <h2>Let’s build something<br>good together.</h2>
+                    <p>I’m looking for my first opportunity to grow with a team and make useful things for the web. I’d
+                        love to hear from you.</p>
+                </div>
+                <div class="contact-actions">
+                    <a class="btn btn-primary" href="mailto:mdmudassirali73@gmail.com">Say hello ↗</a>
+                    <a class="email" href="mailto:mdmudassirali73@gmail.com">mdmudassirali73@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <span>© 2026 Mudassir Ali · Made with curiosity and ☕</span>
+            <div class="socials">
+                <a href="https://github.com/MohammedMudassirAli" target="_blank"
+                    rel="https://github.com/MohammedMudassirAli">GitHub ↗</a>
+                <a href="https://linkedin.com/" target="_blank" rel="www.linkedin.com/in/
+md-mudassir-ali-4939mls
+">LinkedIn ↗</a>
+            </div>
+            <a href="#home">Back to top ↑</a>
+        </div>
+    </footer>
+</body>
+
+</html>

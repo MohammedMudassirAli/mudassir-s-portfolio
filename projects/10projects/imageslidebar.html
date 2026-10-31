@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Image Slider</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:rgba(247, 247, 247, 0.904);
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    text-align:center;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+select{
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+}
+
+.fade{
+    animation:fadeEffect .8s ease-in-out;
+}
+
+@keyframes fadeEffect{
+    from{
+        opacity:0;
+        transform:translateX(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+#imageTitle{
+    margin-top:20px;
+    font-size:30px;
+    font-weight:bold;
+}
+
+#imageCaption{
+    margin-top:10px;
+    color:#d1d5db;
+    font-size:17px;
+    line-height:1.6;
+}
+
+.controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin-top:15px;
+}
+
+.controls button{
+    flex:1;
+    max-width:60px;
+    height:50px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.controls button:hover{
+    background:#95ee7f;
+}
+button{
+    padding:12px 22px;
+    margin:5px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#313946;
+    color:white;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#2563eb;
+}
+
+@media(max-width:768px){
+
+    img{
+        height:280px;
+    }
+
+    #imageTitle{
+        font-size:24px;
+    }
+
+    #imageCaption{
+        font-size:15px;
+    }
+
+    button,
+    select{
+        width:100%;
+        margin:6px 0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Image Slidebar</h1>
+
+<select id="category" onchange="changeCategory()">
+    <option value="landscape">🌄 Landscape</option>
+    <option value="cars">🚗 Cars</option>
+    <option value="designs">🎨 Designs</option>
+</select>
+
+<img id="slider" src="" alt="Image">
+
+<h2 id="imageTitle"></h2>
+
+<p id="imageCaption"></p>
+
+
+    <div class="controls">
+    <button id="prevBtn" onclick="prevImage()">⬅ </button>
+    <button id="playBtn" onclick="playSlider()">▶ </button>
+    <button id="stopBtn" onclick="stopSlider()">⏸ </button>
+    <button id="nextBtn" onclick="nextImage()"> ➡</button>
+</div>
+
+</div>
+
+<script>
+    let timer;
+
+function playSlider(){
+
+    clearInterval(timer);
+
+    timer = setInterval(() => {
+        nextImage();
+    }, 3000); // 3 seconds
+}
+
+function stopSlider(){
+    clearInterval(timer);
+}
+
+const images = {
+
+landscape:[
+{
+image:"https://picsum.photos/id/1015/1000/600",
+title:"Mountain Paradise",
+caption:"A beautiful mountain range surrounded by lush greenery and fresh air."
+},
+{
+image:"https://picsum.photos/id/1043/1000/600",
+title:"River Valley",
+caption:"Calm river flowing through picturesque valleys and forests."
+},
+{
+image:"https://picsum.photos/id/1018/1000/600",
+title:"Nature Escape",
+caption:"A stunning landscape perfect for adventure and relaxation."
+}
+],
+
+cars:[
+{
+image:"https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1000",
+title:"Luxury Sports Car",
+caption:"Elegant design combined with high-speed performance."
+},
+{
+image:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1000",
+title:"Classic Muscle Car",
+caption:"Timeless beauty and powerful engineering."
+},
+{
+image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000",
+title:"Modern Supercar",
+caption:"Aerodynamic perfection and cutting-edge technology."
+}
+],
+
+designs:[
+{
+image:"https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1000",
+title:"Modern UI Design",
+caption:"Creative interface design with sleek visual aesthetics."
+},
+{
+image:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1000",
+title:"Developer Workspace",
+caption:"Professional coding setup for productivity and innovation."
+},
+{
+image:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1000",
+title:"Digital Creativity",
+caption:"Modern digital experiences powered by great design."
+}
+]
+
+};
+
+let currentCategory = "landscape";
+let currentIndex = 0;
+let slideShow;
+
+function showImage(){
+
+    const item =
+    images[currentCategory][currentIndex];
+
+    const slider =
+    document.getElementById("slider");
+
+    slider.classList.remove("fade");
+
+    void slider.offsetWidth;
+
+    slider.classList.add("fade");
+
+    slider.src = item.image;
+
+    document.getElementById("imageTitle").textContent =
+    item.title;
+
+    document.getElementById("imageCaption").textContent =
+    item.caption;
+}
+
+function nextImage(){
+    currentIndex =
+    (currentIndex + 1) %
+    images[currentCategory].length;
+
+    showImage();
+}
+
+function prevImage(){
+    currentIndex =
+    (currentIndex - 1 +
+    images[currentCategory].length) %
+    images[currentCategory].length;
+
+    showImage();
+}
+
+function changeCategory(){
+    currentCategory =
+    document.getElementById("category").value;
+
+    currentIndex = 0;
+
+    showImage();
+}
+
+function playSlider(){
+    stopSlider();
+    slideShow = setInterval(nextImage,3000);
+}
+
+function stopSlider(){
+    clearInterval(slideShow);
+}
+showImage();
+playSlider();
+
+</script>
+
+</body>
+</html>
